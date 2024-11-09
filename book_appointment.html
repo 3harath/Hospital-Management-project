@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="book-appointment">
+    <h2>Book an Appointment</h2>
+    <form action="{{ url_for('book_appointment') }}" method="post">
+        <select name="doctor" required>
+            <option value="">Select a Doctor</option>
+            <option value="Dr. Smith">Dr. Smith</option>
+            <option value="Dr. Johnson">Dr. Johnson</option>
+            <option value="Dr. Williams">Dr. Williams</option>
+        </select>
+        <select name="booth" required>
+            <option value="">Select a Booth</option>
+            <option value="Booth A">Booth A</option>
+            <option value="Booth B">Booth B</option>
+            <option value="Booth C">Booth C</option>
+        </select>
+        <input type="date" name="date" required>
+        <input type="time" name="time" required>
+        <button type="submit">Book Appointment</button>
+    </form>
+</section>
+{% endblock %}

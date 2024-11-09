@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="dashboard">
+    <h2>Welcome, {{ patient[1] }}!</h2>
+    <div class="dashboard-content">
+        <div class="patient-info">
+            <h3>Your Information</h3>
+            <p>Name: {{ patient[1] }}</p>
+            <p>Email: {{ patient[2] }}</p>
+        </div>
+        <div class="appointments">
+            <h3>Your Appointments</h3>
+            {% if appointments %}
+                <ul>
+                {% for appointment in appointments %}
+                    <li>
+                        <p>Doctor: {{ appointment[2] }}</p>
+                        <p>Booth: {{ appointment[3] }}</p>
+                        <p>Date: {{ appointment[4] }}</p>
+                        <p>Time: {{ appointment[5] }}</p>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>No appointments scheduled.</p>
+            {% endif %}
+        </div>
+    </div>
+    <a href="{{ url_for('book_appointment') }}" class="btn">Book New Appointment</a>
+</section>
+{% endblock %}
